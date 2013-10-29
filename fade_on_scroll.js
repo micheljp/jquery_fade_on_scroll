@@ -2,6 +2,7 @@ $.fn.fade_on_scroll = function() {
 
   var posWas;
   var self = this;
+  self.css("opacity",0);
 
   $(window).scroll(function() {
 
