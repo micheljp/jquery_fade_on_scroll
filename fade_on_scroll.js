@@ -2,7 +2,6 @@ $.fn.fade_on_scroll = function() {
 
   var posWas;
   var self = this;
-  self.css("opacity",0);
 
   $(window).scroll(function() {
 
@@ -28,18 +27,17 @@ $.fn.fade_on_scroll = function() {
 
           if ((scrolltop - posWas) > 15) {
 
-            var incrementer = 0.1;
+            var incrementer = 0.2;
 
           } else {
 
-            var incrementer = 0.02;
+            var incrementer = 0.01;
 
           }
 
         var get_opacity = (elem.css("opacity") * 1);
         var set_opacity = get_opacity + incrementer;
         elem.css("opacity",set_opacity);
-
         }
 
         if (location > (elem_offset.top + elem_height_half + window_height) && location < (elem_offset.top + elem_height + window_height)) {
@@ -49,18 +47,17 @@ $.fn.fade_on_scroll = function() {
 
           if ((scrolltop - posWas) > 15) {
 
-            var incrementer = 0.3;
+            var incrementer = 0.4;
 
         } else {
 
-            var incrementer = 0.05;
+            var incrementer = 0.09;
 
         }
 
         var get_opacity = (elem.css("opacity") * 1);
         var set_opacity = get_opacity - incrementer;
         elem.css("opacity",set_opacity);
-
         }
     });
   }
@@ -82,39 +79,38 @@ $.fn.fade_on_scroll = function() {
 
       //begin code to fade in element
 
-        if ((scrolltop - posWas) > 15) {
+        if ((posWas - scrolltop) > 15) {
 
-          var incrementer = 0.3;
+          var incrementer = 0.4;
 
         } else {
 
-          var incrementer = 0.05;
+          var incrementer = 0.08;
 
         }
 
         var get_opacity = (elem.css("opacity") * 1);
         var set_opacity = get_opacity - incrementer;
+        var scrollNum = (posWas - scrolltop);
         elem.css("opacity",set_opacity);
-      }
+}
 
       if (scrolltop < (elem_offset.top + elem_height) && location > (elem_offset.top + elem_height_half)) {
 
       //begin code to fade out element
 
-        if ((scrolltop - posWas) > 15) {
-
-          var incrementer = 0.1;
+        if ((posWas - scrolltop) > 15) {
+          var incrementer = 0.4;
 
         } else {
 
-        var incrementer = 0.02;
+        var incrementer = 0.01;
 
         }
-
-        var get_opacity = (elem.css("opacity")*1);
+var get_opacity = (elem.css("opacity")*1);
         var set_opacity = get_opacity + incrementer;
         elem.css("opacity",set_opacity);
-      }
+}
   });
   }
 
